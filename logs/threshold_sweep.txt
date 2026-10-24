@@ -1,0 +1,35 @@
+Threshold / top-K sweep - MP3 Grounded Q&A
+Corpus: 5 Sherlock Holmes summaries, 73 chunks (mp3_sherlock)
+Questions: data/predefined_questions.jsonl (4 answerable + 2 should-abstain)
+Raw output for every run: logs/sweep/k<K>_t<T>.txt
+
+  k    threshold  hit rate  grounded   abstention   hallucination  answerable Qs not grounded
+  ---------------------------------------------------------------------------------------------
+  3    0.30       1.0       0.5        1.0          0.0            q1_red_headed_league_assistant, q2_speckled_band_weapon
+  3    0.40       1.0       0.5        1.0          0.0            q1_red_headed_league_assistant, q2_speckled_band_weapon
+  3    0.45       1.0       0.5        1.0          0.0            q1_red_headed_league_assistant, q2_speckled_band_weapon
+  5    0.30       1.0       1.0        1.0          0.0            -
+  5    0.40       1.0       1.0        1.0          0.0            -
+  5    0.45       1.0       0.75       1.0          0.0            q1_red_headed_league_assistant
+  8    0.30       1.0       1.0        1.0          0.0            -
+  8    0.40       1.0       1.0        1.0          0.0            -
+  8    0.45       1.0       1.0        1.0          0.0            -
+
+Top retrieval scores (cosine, text-embedding-3-small):
+  What killed Julia Stoner?                  0.509  answer chunk (swamp adder) only at rank 7
+  Who was the assistant at the pawnshop?     0.693  answer chunk (John Clay) at rank 4
+  Who is Professor Moriarty? (abstain)       0.473
+  Boiling point of water? (abstain)          0.144
+
+Notes:
+  - k=3 failed q1 and q2 at every threshold: the answer chunk was not in the top 3, so the
+    model correctly refused. This was a retrieval miss, not a threshold problem.
+  - Moriarty scores 0.473, almost the same as real questions, so no threshold separates it.
+    It abstained in every run because of the grounding instruction in the prompt.
+  - At k=5 / 0.45, q1 abstained once even though its top score is 0.693, so the model refused
+    with the context it had. Same question grounded at 0.30 and 0.40.
+  - First pick was k=5, threshold=0.40 (same scores as k=8, fewer tokens). Then the short
+    form "What killed Julia Stoner?" still abstained in ask: its answer chunk sits at rank 7,
+    so k=5 never reaches it. The longer predefined wording got lucky with a nearby chunk.
+  - Final: k=8, threshold=0.40. Scores the same on the question set, and it also answers the
+    short Julia Stoner question. Moriarty still abstains at k=8 in every run.

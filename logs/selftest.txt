@@ -1,0 +1,15 @@
+  ✓ load_corpus reads the corpus (5 docs)
+  ✓ chunk_document splits doc 0 into chunks (13)
+  ✓ format_context numbers chunks [1]/[2]
+  ✓ validate_citations accepts real markers
+  ✓ validate_citations flags a fabricated marker
+  ✓ should_abstain: low score → abstain
+  ✓ should_abstain: good score → answer
+  ✓ should_abstain: no chunks → abstain
+  ✓ evaluate: hit rate 1/2 answerable
+  ✓ evaluate: grounded rate 1/2 answerable
+  ✓ evaluate: abstention accuracy 1/1
+  ✓ evaluate: hallucination rate 0/1
+  ✓ format_eval_table renders a table
+
+✓ selftest passed

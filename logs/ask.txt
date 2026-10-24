@@ -1,0 +1,24 @@
+Grounded Q&A over the Sherlock corpus. Empty line to exit.
+
+? 
+Julia Stoner was killed by a snake, specifically a swamp adder, which had been trained by Doctor Roylott to attack her. The snake bit her as she lay in bed, leaving no visible mark due to its tiny puncture and quick action [8].
+
+  Sources:
+    [8] The Adventure of the Speckled Band — The Explanation  (score 0.361)
+  Latency: 1335ms
+
+? 
+I don't know based on the provided documents.
+
+  (abstained — no supporting excerpt)
+  Latency: 816ms
+
+? 
+The blue carbuncle was found embedded in the crop of a goose [2]. It was actually stolen by James Ryder with the help of the Countess's maid, Catherine Cusack [4].
+
+  Sources:
+    [2] The Adventure of the Blue Carbuncle — The Carbuncle  (score 0.579)
+    [4] The Adventure of the Blue Carbuncle — James Ryder Confesses  (score 0.344)
+  Latency: 1489ms
+
+? 

@@ -1,0 +1,8 @@
+→ Loading corpus…
+  01_red_headed_league.txt: 13 chunks
+  02_speckled_band.txt: 13 chunks
+  03_blue_carbuncle.txt: 13 chunks
+  04_engineers_thumb.txt: 16 chunks
+  05_scandal_in_bohemia.txt: 18 chunks
+→ 73 chunks · setting up collection · ingesting…
+✓ Done. Try: python mp3_grounded_qa.py ask
