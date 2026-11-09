@@ -26,7 +26,7 @@ With the kit defaults (top-K 3, threshold 0.30) the grounded rate was 0.5 (`logs
 
 ## Demo
 
-2–3 minute walkthrough (cited answers + a correct "I don't know"): _link to be added_
+Recording of a live run: [`demo/mp3_demo.mp4`](demo/mp3_demo.mp4) (about 2 minutes). It asks three questions through `answer()`: a cited answer (Julia Stoner), a two-chunk answer (the blue carbuncle) and a correct "I don't know" (Professor Moriarty), then shows `mp3_eval.txt`.
 
 ## Run it
 
